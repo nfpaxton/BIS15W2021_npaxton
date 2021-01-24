@@ -1,7 +1,7 @@
 ---
 title: "Lab 4 Homework"
 author: "Natascha Paxton"
-date: "2021-01-18"
+date: "2021-01-24"
 output:
   html_document: 
     theme: spacelab
@@ -35,8 +35,7 @@ homerange <- readr::read_csv("data/Tamburelloetal_HomeRangeDatabase.csv")
 ```
 
 ```
-## 
-## ── Column specification ────────────────────────────────────────────────────────
+## Parsed with column specification:
 ## cols(
 ##   .default = col_character(),
 ##   mean.mass.g = col_double(),
@@ -47,7 +46,10 @@ homerange <- readr::read_csv("data/Tamburelloetal_HomeRangeDatabase.csv")
 ##   log10.preymass = col_double(),
 ##   PPMR = col_double()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+```
+
+```
+## See spec(...) for full column specifications.
 ```
 
 
@@ -85,8 +87,8 @@ glimpse(homerange)
 ```
 
 ```
-## Rows: 569
-## Columns: 24
+## Observations: 569
+## Variables: 24
 ## $ taxon                      <chr> "lake fishes", "river fishes", "river fish…
 ## $ common.name                <chr> "american eel", "blacktail redhorse", "cen…
 ## $ class                      <chr> "actinopterygii", "actinopterygii", "actin…
