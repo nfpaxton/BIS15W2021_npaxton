@@ -1,7 +1,7 @@
 ---
 title: "Lab 7 Homework"
 author: "Natascha Paxton"
-date: "2021-02-02"
+date: "2021-02-03"
 output:
   html_document: 
     theme: spacelab
@@ -37,7 +37,7 @@ amniota <- readr::read_csv("data/amniota.csv")
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   .default = col_double(),
 ##   class = col_character(),
@@ -47,7 +47,7 @@ amniota <- readr::read_csv("data/amniota.csv")
 ##   species = col_character(),
 ##   common_name = col_character()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+## i Use `spec()` for the full column specifications.
 ```
 
 `amphibio` data:  
@@ -61,7 +61,7 @@ amphibio <- readr::read_csv("data/amphibio.csv")
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   .default = col_double(),
 ##   id = col_character(),
@@ -72,7 +72,7 @@ amphibio <- readr::read_csv("data/amphibio.csv")
 ##   Seeds = col_logical(),
 ##   OBS = col_logical()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+## i Use `spec()` for the full column specifications.
 ```
 
 ```
@@ -265,7 +265,7 @@ amniota %>%
 ##  8 female_maturity_d               0
 ##  9 litter_or_clutch_size_n         0
 ## 10 litters_or_clutches_per_y       0
-## # … with 26 more rows
+## # ... with 26 more rows
 ```
 
 **3. Do some exploratory analysis of the `amphibio` data set. Use the function(s) of your choice. Try to get an idea of how NA's are represented in the data.**  
@@ -457,7 +457,7 @@ amphibio %>%
 ##  8 Wet_cold     6625
 ##  9 Crepu        6608
 ## 10 Dry_warm     6572
-## # … with 28 more rows
+## # ... with 28 more rows
 ```
 
 **4. How many total NA's are in each data set? Do these values make sense? Are NA's represented by values?**   
@@ -534,7 +534,7 @@ naniar::miss_var_summary(amniota_tidy)
 ##  8 egg_length_mm                   20702     97.1
 ##  9 weaning_weight_g                20258     95.0
 ## 10 female_svl_cm                   20242     94.9
-## # … with 26 more rows
+## # ... with 26 more rows
 ```
 
 **7. Use the package `naniar` to produce a summary, including percentages, of missing data in each column for the `amphibio` data.**
@@ -557,7 +557,7 @@ naniar::miss_var_summary(amphibio)
 ##  8 Wet_cold   6625     97.8
 ##  9 Crepu      6608     97.5
 ## 10 Dry_warm   6572     97.0
-## # … with 28 more rows
+## # ... with 28 more rows
 ```
 
 **8. For the `amniota` data, calculate the number of NAs in the `egg_mass_g` column sorted by taxonomic class; i.e. how many NA's are present in the `egg_mass_g` column in birds, mammals, and reptiles? Does this results make sense biologically? How do these results affect your interpretation of NA's?**  
@@ -583,6 +583,10 @@ amniota_tidy %>%
 ```r
 #It makes sense that 4953 NA's exist for Mammalia egg mass because mammals give birth to live young, and don't lay eggs. That's why 100% of that data is NA. This is a good reminder that NA's don't necessarily mean missing data, but also are used for signifying that something is "not applicable." I am surprised that 92% of Reptilia egg mass data is NA though, as most reptiles do lay eggs. This seems like too many NAs.
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 **9. The `amphibio` data have variables that classify species as fossorial (burrowing), terrestrial, aquatic, or arboreal. Calculate the number of NA's in each of these variables. Do you think that the authors intend us to think that there are NA's in these columns or could they represent something else? Explain.**
 
@@ -608,8 +612,9 @@ amphibio %>%
 ##  8 Alytes cisternasii  Arb           0        0
 ##  9 Alytes dickhilleni  Fos           1      100
 ## 10 Alytes dickhilleni  Ter           0        0
-## # … with 27,094 more rows
+## # ... with 27,094 more rows
 ```
+</div>
 
 
 ```r

@@ -123,6 +123,10 @@ amniota_tidy %>%
 ```{r}
 #It makes sense that 4953 NA's exist for Mammalia egg mass because mammals give birth to live young, and don't lay eggs. That's why 100% of that data is NA. This is a good reminder that NA's don't necessarily mean missing data, but also are used for signifying that something is "not applicable." I am surprised that 92% of Reptilia egg mass data is NA though, as most reptiles do lay eggs. This seems like too many NAs.
 ```
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 
 **9. The `amphibio` data have variables that classify species as fossorial (burrowing), terrestrial, aquatic, or arboreal. Calculate the number of NA's in each of these variables. Do you think that the authors intend us to think that there are NA's in these columns or could they represent something else? Explain.**
 ```{r}
@@ -131,6 +135,7 @@ amphibio %>%
   select(Species, Fos, Ter, Aqu, Arb) %>% 
   naniar::miss_var_summary(order=T)
 ```
+</div>
 
 ```{r}
 #We see that each species is entered 4 times, and that it can fall under one or more of the four categories of Fos, Ter, Aqu, Arb, with data missing from the categories that don't apply to it, hence NA = not applicable. The scientists used a binary system of 1 and 0 to indicate whether a variable was applicable to the species or not. 
