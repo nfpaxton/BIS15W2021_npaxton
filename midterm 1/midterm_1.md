@@ -1,7 +1,7 @@
 ---
 title: "Midterm 1"
 author: "Natascha Paxton"
-date: "2021-01-28"
+date: "2021-02-09"
 output:
   html_document: 
     theme: spacelab
@@ -108,6 +108,11 @@ class(sex)
 ## [1] "factor"
 ```
 
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 **5. (2 points) How many male and female elephants are represented in the data?**
 
 ```r
@@ -154,6 +159,23 @@ elephants %>%
 ## # … with 140 more rows
 ```
 138 males and 150 females. 
+
+_While your answer here is correct, I think you know some better ways at getting at this question. If you were preparing this report for an employer, for example, you probably want to present a table that shows the counts- not the number of rows._
+
+
+```r
+elephants %>% count(sex)
+```
+
+```
+## # A tibble: 2 x 2
+##   sex       n
+## * <chr> <int>
+## 1 F       150
+## 2 M       138
+```
+
+</div>
 
 **6. (2 points) What is the average age all elephants in the data?**
 

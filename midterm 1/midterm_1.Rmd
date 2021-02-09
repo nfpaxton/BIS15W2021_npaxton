@@ -58,6 +58,11 @@ sex <- as.factor("sex")
 class(sex)
 ```
 
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 **5. (2 points) How many male and female elephants are represented in the data?**
 ```{r}
 elephants %>% 
@@ -68,6 +73,14 @@ elephants %>%
   filter(sex == "F")
 ```
 138 males and 150 females. 
+
+_While your answer here is correct, I think you know some better ways at getting at this question. If you were preparing this report for an employer, for example, you probably want to present a table that shows the counts- not the number of rows._
+
+```{r}
+elephants %>% count(sex)
+```
+
+</div>
 
 **6. (2 points) What is the average age all elephants in the data?**
 
