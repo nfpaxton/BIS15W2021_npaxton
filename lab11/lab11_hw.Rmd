@@ -50,6 +50,14 @@ naniar::miss_var_summary(gapminder)
 gapminder_clean <- clean_names(gapminder)
 gapminder_clean
 ```
+```{r}
+colors <- paletteer::palettes_d_names
+colors
+```
+```{r}
+palette <- paletteer_d("tvthemes::AirNomads")
+palette
+```
 
 **2. Among the interesting variables in gapminder is life expectancy. How has global life expectancy changed between 1952 and 2007?**
 ```{r}
@@ -66,14 +74,14 @@ gapminder_clean %>%
 gapminder_clean %>% 
   group_by(year) %>% 
   summarize(mean_life_exp=mean(life_exp)) %>% 
-  ggplot(aes(x=year, y=mean_life_exp, color=mean_life_exp)) +
+  ggplot(aes(x=year, y=mean_life_exp, color = mean_life_exp)) +
   geom_point(shape=9) +
-  geom_line(aes(group=1)) +
+  theme_gray(base_family = "Palatino") +
   theme(axis.text.x = element_text(hjust = .5), plot.title = element_text(size = rel(1.5), hjust = 0.5)) +
   labs(title = "Average Global Life Expectancy Between 1952 and 2007",
        x = "Year",
-       y = "Average Global Life Expectancy") +
-  theme_linedraw()
+       y = "Average Global Life Expectancy")
+```
 ```
 
 **3. How do the distributions of life expectancy compare for the years 1952 and 2007?**
@@ -82,7 +90,8 @@ gapminder_clean %>%
   filter(year== "1952"| year== "2007") %>% 
   ggplot(aes(x=year, y=life_exp, fill = year)) + 
   geom_boxplot() +
-  theme_linedraw() +
+  theme_gray(base_family = "Palatino") +
+  scale_fill_manual(values = palette) +
   theme(axis.text.x = element_text(hjust = .5), plot.title = element_text(size = rel(1.5), hjust = 0.5)) +
   labs(title = "Global Life Expectancy Distribution",
        x = "Year",
@@ -108,7 +117,8 @@ gapminder_clean %>%
   ggplot(aes(x=year, y=mean_life_exp, group=continent, color= continent)) + 
   geom_point(shape=9) +
   geom_line() +
-  theme_linedraw()+
+  theme_gray()+
+  scale_color_manual(values = palette) +
   theme(axis.text.x = element_text(hjust = .5), plot.title = element_text(size = rel(1.5), hjust = 0.5)) +
   labs(title = "Life Expectancy by Continent over the Years",
        x = "Year",
@@ -123,6 +133,8 @@ gapminder_clean %>%
   ggplot(aes(x= log10(gdp_percap), y= life_exp, color = continent)) +
   geom_jitter(size = 0.15) +
   geom_smooth(method = "lm", se = F) +
+  theme_gray(base_family = "Palatino") +
+  scale_color_manual(values = palette) +
   theme(axis.text.x = element_text(hjust = .5), plot.title = element_text(size = rel(1.5), hjust = .5)) +
   labs(title = "Relationship between GDP and Life Expectancy",
        x = "log10 GDP per capita",
@@ -153,12 +165,13 @@ gapminder %>%
   select(country, year, pop) %>% 
   ggplot(aes(x = year, y = pop, color = country, group = country)) +
   geom_point(shape = 9) +
-  geom_line()+
+  geom_line() +
+  theme_gray(base_family = "Palatino") +
+  scale_color_manual(values = palette) +
   labs(title = "Countries with Largest Population Growth from 1952 - 2007",
        x = "Year",
        y = "Population",
-       color = "Country") +
-  theme_linedraw(base_family = "Times")
+       color = "Country")
 ```
 
 **9. How does per-capita GDP growth compare between these same five countries?**
@@ -169,11 +182,12 @@ gapminder_clean %>%
   ggplot(aes(x = year, y = gdp_percap, color = country, group = country)) +
   geom_line() +
   geom_point(shape = 9) +
+  theme_gray(base_family = "Palatino") +
+  scale_color_manual(values = palette) +
   labs(title = "GDP per Capita for Countries with Largest Pop. Growth (1952 - 2007)",
        x = "Year",
        y = "GDP per Capita",
-       color = "Country") +
-  theme_linedraw(base_family = "Times")
+       color = "Country")
 ```
 
 **10. Make one plot of your choice that uses faceting!**
@@ -181,7 +195,11 @@ gapminder_clean %>%
 gapminder_clean %>% 
   ggplot(aes(x = life_exp)) +
   geom_density()+
-  facet_wrap(~continent)
+  facet_wrap(~continent) +
+  theme_gray(base_family = "Palatino") +
+  labs(title = "Life Expectency Distributions by Continent (1952-2007)",
+       x = "Life Expectancy",
+       y = "Density")
 ```
 
 
