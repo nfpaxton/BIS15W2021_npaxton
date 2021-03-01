@@ -1,7 +1,7 @@
 ---
 title: "Lab 12 Homework"
 author: "Natascha Paxton"
-date: "2021-02-25"
+date: "2021-03-01"
 output:
   html_document: 
     theme: spacelab
@@ -40,7 +40,7 @@ grizzly <- read_csv(here("lab12", "data", "bear-sightings.csv"))
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   bear.id = col_double(),
 ##   longitude = col_double(),
@@ -86,7 +86,83 @@ grizzly_map <- get_map(bbox, maptype = "terrain", source = "stamen")
 ```
 
 ```
-## Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.
+## Source : http://tile.stamen.com/terrain/5/1/6.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/2/6.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/3/6.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/4/6.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/1/7.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/2/7.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/3/7.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/4/7.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/1/8.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/2/8.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/3/8.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/4/8.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/1/9.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/2/9.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/3/9.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/4/9.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/1/10.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/2/10.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/3/10.png
+```
+
+```
+## Source : http://tile.stamen.com/terrain/5/4/10.png
 ```
 
 
@@ -116,7 +192,7 @@ wolves <- read_csv(here("lab12", "data", "wolves_data", "wolves_dataset.csv"))
 
 ```
 ## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   .default = col_double(),
 ##   pop = col_character(),
@@ -124,7 +200,7 @@ wolves <- read_csv(here("lab12", "data", "wolves_data", "wolves_dataset.csv"))
 ##   sex = col_character(),
 ##   color = col_character()
 ## )
-## ℹ Use `spec()` for the full column specifications.
+## i Use `spec()` for the full column specifications.
 ```
 
 ```r
@@ -145,7 +221,7 @@ wolves
 ##  8 AK.PEN  2006 P       M     G      57.0 -158.    254.  10.4           8
 ##  9 AK.PEN  2006 S       F     G      57.0 -158.    254.  10.4           8
 ## 10 AK.PEN  2006 P       M     G      57.0 -158.    254.  10.4           8
-## # … with 1,976 more rows, and 13 more variables: pack.size <dbl>,
+## # ... with 1,976 more rows, and 13 more variables: pack.size <dbl>,
 ## #   standard.habitat <dbl>, standard.human <dbl>, standard.pop <dbl>,
 ## #   standard.packsize <dbl>, standard.latitude <dbl>, standard.longitude <dbl>,
 ## #   cav.binary <dbl>, cdv.binary <dbl>, cpv.binary <dbl>, chv.binary <dbl>,
@@ -171,7 +247,7 @@ wolves
 ##  8 AK.PEN  2006 P       M     G      57.0 -158.    254.  10.4           8
 ##  9 AK.PEN  2006 S       F     G      57.0 -158.    254.  10.4           8
 ## 10 AK.PEN  2006 P       M     G      57.0 -158.    254.  10.4           8
-## # … with 1,976 more rows, and 13 more variables: pack_size <dbl>,
+## # ... with 1,976 more rows, and 13 more variables: pack_size <dbl>,
 ## #   standard_habitat <dbl>, standard_human <dbl>, standard_pop <dbl>,
 ## #   standard_packsize <dbl>, standard_latitude <dbl>, standard_longitude <dbl>,
 ## #   cav_binary <dbl>, cdv_binary <dbl>, cpv_binary <dbl>, chv_binary <dbl>,
