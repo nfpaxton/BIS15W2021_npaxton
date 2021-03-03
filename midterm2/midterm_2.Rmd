@@ -115,6 +115,10 @@ life_expectancy_tidy %>%
 #There are 187 countries represented in the life expectancy data. 
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
 ## Life Expectancy  
 
 3. (2 points) Let's limit the data to the past 100 years (1920-2020). For these years, which country has the highest life expectancy? How about the lowest life expectancy?  
@@ -134,6 +138,7 @@ life_expectancy_tidy %>%
 ```{r}
 #Between 1920 and 2020, Singapore has the highest life expectancy and Kazakhstan has the lowest life expectancy. 
 ```
+</div>
 
 4. (3 points) Although we can see which country has the highest life expectancy for the past 100 years, we don't know which countries have changed the most. What are the top 5 countries that have experienced the biggest improvement in life expectancy between 1920-2020?
 
