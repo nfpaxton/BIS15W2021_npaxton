@@ -11,7 +11,7 @@
 
 <meta name="author" content="Natascha Paxton" />
 
-<meta name="date" content="2021-03-02" />
+<meta name="date" content="2021-03-03" />
 
 <title>Lab 13 Homework</title>
 
@@ -167,7 +167,7 @@ pre code {
 
 <h1 class="title toc-ignore">Lab 13 Homework</h1>
 <h4 class="author">Natascha Paxton</h4>
-<h4 class="date">2021-03-02</h4>
+<h4 class="date">2021-03-03</h4>
 
 </div>
 
@@ -181,12 +181,12 @@ pre code {
 <h2>Libraries</h2>
 <pre class="r"><code>if (!require(&quot;tidyverse&quot;)) install.packages(&#39;tidyverse&#39;)</code></pre>
 <pre><code>## Loading required package: tidyverse</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
-## ✓ tibble  3.0.6     ✓ dplyr   1.0.4
-## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## √ ggplot2 3.3.3     √ purrr   0.3.4
+## √ tibble  3.1.0     √ dplyr   1.0.4
+## √ tidyr   1.1.3     √ stringr 1.4.0
+## √ readr   1.4.0     √ forcats 0.5.1</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(tidyverse)
@@ -200,7 +200,7 @@ library(janitor)</code></pre>
 <p>The data for this assignment come from the <a href="https://www.universityofcalifornia.edu/infocenter">University of California Information Center</a>. Admissions data were collected for the years 2010-2019 for each UC campus. Admissions are broken down into three categories: applications, admits, and enrollees. The number of individuals in each category are presented by demographic.</p>
 <pre class="r"><code>UC_admit &lt;- readr::read_csv(&quot;data/UC_admit.csv&quot;)</code></pre>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   Campus = col_character(),
 ##   Academic_Yr = col_double(),
@@ -224,19 +224,19 @@ UC_admit</code></pre>
 ##  8 Davis         2019 Applicants All              100.00%             78093
 ##  9 Davis         2018 Applicants International    19.87%              15507
 ## 10 Davis         2018 Applicants Unknown          2.83%                2208
-## # … with 2,150 more rows</code></pre>
+## # ... with 2,150 more rows</code></pre>
 <p><strong>1. Use the function(s) of your choice to get an idea of the overall structure of the data frame, including its dimensions, column names, variable classes, etc. As part of this, determine if there are NA’s and how they are treated.</strong></p>
 <pre class="r"><code>dim(UC_admit)</code></pre>
 <pre><code>## [1] 2160    6</code></pre>
 <pre class="r"><code>glimpse(UC_admit)</code></pre>
 <pre><code>## Rows: 2,160
 ## Columns: 6
-## $ campus            &lt;chr&gt; &quot;Davis&quot;, &quot;Davis&quot;, &quot;Davis&quot;, &quot;Davis&quot;, &quot;Davis&quot;, &quot;Davis&quot;…
-## $ academic_yr       &lt;dbl&gt; 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2018…
-## $ category          &lt;chr&gt; &quot;Applicants&quot;, &quot;Applicants&quot;, &quot;Applicants&quot;, &quot;Applicant…
-## $ ethnicity         &lt;chr&gt; &quot;International&quot;, &quot;Unknown&quot;, &quot;White&quot;, &quot;Asian&quot;, &quot;Chica…
-## $ perc_fr           &lt;chr&gt; &quot;21.16%&quot;, &quot;2.51%&quot;, &quot;18.39%&quot;, &quot;30.76%&quot;, &quot;22.44%&quot;, &quot;0.…
-## $ filtered_count_fr &lt;dbl&gt; 16522, 1959, 14360, 24024, 17526, 277, 3425, 78093, …</code></pre>
+## $ campus            &lt;chr&gt; &quot;Davis&quot;, &quot;Davis&quot;, &quot;Davis&quot;, &quot;Davis&quot;, &quot;Davis&quot;, &quot;Davis&quot;~
+## $ academic_yr       &lt;dbl&gt; 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2018~
+## $ category          &lt;chr&gt; &quot;Applicants&quot;, &quot;Applicants&quot;, &quot;Applicants&quot;, &quot;Applicant~
+## $ ethnicity         &lt;chr&gt; &quot;International&quot;, &quot;Unknown&quot;, &quot;White&quot;, &quot;Asian&quot;, &quot;Chica~
+## $ perc_fr           &lt;chr&gt; &quot;21.16%&quot;, &quot;2.51%&quot;, &quot;18.39%&quot;, &quot;30.76%&quot;, &quot;22.44%&quot;, &quot;0.~
+## $ filtered_count_fr &lt;dbl&gt; 16522, 1959, 14360, 24024, 17526, 277, 3425, 78093, ~</code></pre>
 <pre class="r"><code>summary(UC_admit)</code></pre>
 <pre><code>##     campus           academic_yr     category          ethnicity        
 ##  Length:2160        Min.   :2010   Length:2160        Length:2160       
@@ -306,6 +306,7 @@ server &lt;- function(input, output, session) {
 }
 
 shinyApp(ui, server)</code></pre>
+<pre><code>## PhantomJS not found. You can install it with webshot::install_phantomjs(). If it is installed, please make sure the phantomjs executable can be found via the PATH variable.</code></pre>
 <p><div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div></p>
 <p><strong>3. Make alternate version of your app above by tracking enrollment at a campus over all of the represented years while allowing users to interact with campus, category, and ethnicity.</strong></p>
 <pre class="r"><code>ui &lt;- dashboardPage(
